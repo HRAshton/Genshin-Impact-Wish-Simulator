@@ -186,7 +186,8 @@
 	}
 
 	.active .wrapper {
-		transform: translateY(-25%);
+		transform: translateY(0);
+		zoom: 40%;
 	}
 
 	:global(.mobile) .active .wrapper {
