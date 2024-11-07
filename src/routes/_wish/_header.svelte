@@ -87,31 +87,6 @@
 <div id="header" style={headerHeightstyle}>
 	<div class="top" in:fly={{ y: -20, duration: 800 }}>
 		<h1 class="wish-title">
-			<img src={$assets['brand.png']} alt="Brand" crossorigin="anonymous" />
-
-			{#if !$editorMode}
-				<span> {$t('wish.wishTitle')} </span>
-			{:else}
-				<span> {$t('customBanner.title')} </span>
-			{/if}
-
-			<button class="help" on:click={handleMenu} title="Setting" aria-label="Setting">
-				<i class="gi-help" />
-			</button>
-			<button class="chat" on:click={chatToggle} title="Chats" aria-label="Chats">
-				<i class="gi-chat" />
-			</button>
-
-			{#if !$isPWA || !$isMobile}
-				<button
-					class="fullscreen"
-					on:click={handleFullscreen}
-					title="FullScreen"
-					aria-label="Fullscreen"
-				>
-					<i class="gi-{!fullscreen ? 'fullscreen' : 'shrink'}" />
-				</button>
-			{/if}
 		</h1>
 		<div class="budget">
 			{#if !$editorMode}
@@ -132,10 +107,6 @@
 						{unlimitedWish ? '∞' : balance}
 					</MyFund>
 				</div>
-
-				<button class="close" on:click={previousClick} title="Change Banner">
-					<i class="gi-close" />
-				</button>
 			{:else}
 				<button
 					class="close"

@@ -22,22 +22,52 @@
 	};
 	setContext('closeModal', cancelModal);
 
+	export let code = '';
+
 	const confirmConvert = () => {
+		const usedCodes = window.localStorage.getItem('usedCodes') || '';
+		if (usedCodes.includes(code)) {
+			alert('Code already used');
+			return;
+		}
+		
+		window.localStorage.setItem('usedCodes', usedCodes + code + ',');
+		
+		const upperCode = code.toUpperCase();
+		
+		const codes = {
+			'ЦРВЕНА': 160,
+			'БРАОН': 160,
+			'ЗЕЛЕНА': 160,
+			'ЖУТА': 320,
+			'ТИРКИЗНА': 160,
+			'ПУРПУРНА': 160,
+		}
+		
+		if (!codes[upperCode]) {
+			alert('Invalid code');
+			return;
+		}
+		
+		const value = codes[upperCode];
+		
 		primogem.update((v) => {
 			const newVal = v + value;
 			localBalance.set('primogem', newVal);
 			return newVal;
 		});
 
-		genesis.update((v) => {
-			const newVal = v - value;
-			localBalance.set('genesis', newVal);
-			return newVal;
-		});
-
 		playSfx();
 		closeConvertModal();
 		openObtained([{ item: 'primogem', qty: value }]);
+	};
+	
+	const handleCode = (e) => {
+		code = e.target.value;
+	};
+	
+	const submitCode = () => {
+		console.log('submitCode', code);
 	};
 </script>
 
@@ -46,57 +76,29 @@
 	title={$t('shop.exchangeHeading')}
 	on:cancel={cancelModal}
 	on:confirm={confirmConvert}
-	disabled={$genesis < 1}
 >
 	<div slot="confirmtext">{$t('shop.purchaseButton')}</div>
 	<div class="content">
-		<div class="row genesis-exchange">
-			<div class="col genesis">
-				<picture>
-					<Icon type="genesis" width="50%" />
-					<span>{$t('shop.item.genesis')}</span>
-				</picture>
-			</div>
-
-			<div class="col primo-exchange">
-				<picture>
-					<Icon type="primogem" width="50%" />
-					<span>{$t('shop.item.primogem')}</span>
-				</picture>
-			</div>
-
-			<div class="divider">
-				<i class="gi-arrow-right" />
-			</div>
-		</div>
-
-		<div class="slider">
-			<div class="rangeNumber">
-				<span>{$t('shop.qty')} :</span>
-				<span style="font-size: larger">{$genesis < 1 ? 1 : value}</span>
-			</div>
-			<div class="rangeInput">
-				<Range
-					value={$genesis < 1 ? 1 : value}
-					min={$genesis <= 1 ? 0 : 1}
-					max={$genesis || 1}
-					disabled={$genesis < 1}
-				/>
-				<div class="consume" style="display: inline-flex; align-items:center">
-					{$t('shop.consume')}
-					<Icon type="genesis" />
-					<span class:red={$genesis < 1}> {value}</span>
-				</div>
-
-				{#if $genesis < 1}
-					<div class="error red">{$t('shop.insufficient')}</div>
-				{/if}
-			</div>
-		</div>
+		<input
+				class="wishinput"
+				type="text"
+				name="q"
+				id="q"
+				placeholder="Code"
+				bind:value={code}
+				on:input={handleCode}
+				title="Code"
+		/>
 	</div>
 </Modal>
 
 <style>
+	.wishinput {
+		width: 80%;
+		margin: 10px auto;
+		padding: 0.5em;
+	}
+	
 	.red {
 		color: #de2f22 !important;
 	}

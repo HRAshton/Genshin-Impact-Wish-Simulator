@@ -95,31 +95,6 @@
 		pushToast({ message: toastMsg, type: 'error' });
 		showUploader = false;
 	});
-
-	// ShortCut
-	const appReady = getContext('appReady');
-	hotkeys('enter', 'index', (e) => {
-		if (!$appReady || $onWish || $editorMode) return;
-		e.preventDefault();
-		handleMultiRollClick();
-	});
-
-	hotkeys('shift+enter', 'index', (e) => {
-		if (!$appReady || $onWish || isBeginner || $editorMode) return;
-		e.preventDefault();
-		handleSingleRollClick();
-	});
-
-	hotkeys('s,c,h,d', 'index', (e) => {
-		if (!$appReady || $onWish || $editorMode) return;
-		e.preventDefault();
-		const [key] = hotkeys.getPressedKeyString();
-		const to = key.toLocaleLowerCase();
-		if (to === 's') return changePage('shop');
-		if (to === 'c') return changePage('inventory');
-		if (to === 'h') return changePage('history');
-		if (to === 'd') return changePage('details');
-	});
 </script>
 
 {#if showUploader}
@@ -150,19 +125,6 @@
 	<div class="row" style="--bg:url({$assets['button.webp']})">
 		{#if !$editorMode}
 			<div class="left menu-button">
-				<ButtonGeneral on:click={() => changePage('shop')}>
-					{#if hasNewOutfit}
-						<NoticeMark name={openedNotices} style="transform: translateX(70%) translateY(-80%)" />
-					{/if}
-					{$t('shop.text')}
-				</ButtonGeneral>
-
-				<ButtonGeneral on:click={() => changePage('inventory')}>
-					{$t('inventory.text')}
-				</ButtonGeneral>
-				<ButtonGeneral on:click={() => changePage('history')}>
-					{$t('history.text')}
-				</ButtonGeneral>
 			</div>
 
 			{#if (bannerType === 'chronicled' && $chronicledCourse.selected) || bannerType !== 'chronicled'}
@@ -183,35 +145,6 @@
 						</button>
 					{/if}
 
-					<button
-						class="ten wish-button"
-						on:click={handleMultiRollClick}
-						disabled={$onWish || !$readyToPull}
-					>
-						{#if bannerType === 'beginner'}
-							<span class="discount">-20%</span>
-						{/if}
-
-						<div class="top">
-							{$t('wish.rollButton', { values: { count: `×${isBeginner ? 10 : $multipull}` } })}
-						</div>
-
-						<div class="bottom">
-							<Icon type={fateType} />
-							{#if isBeginner}
-								<span style="margin-left: 7px" class:red={currencyUsed < 8 && !isUnlimited}>
-									x 8
-								</span>
-							{:else}
-								<span
-									style="margin-left: 7px"
-									class:red={currencyUsed < $multipull && !isUnlimited}
-								>
-									x {$multipull}
-								</span>
-							{/if}
-						</div>
-					</button>
 				</div>
 			{/if}
 		{:else}

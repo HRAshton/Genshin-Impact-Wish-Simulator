@@ -47,4 +47,4 @@ export const toastMsg = writable([]);
 export const editorMode = writable(false);
 export const editID = writable(0);
 export const customData = writable({});
-export const isCustomBanner = writable(false);
+export const isCustomBanner = writable(true);

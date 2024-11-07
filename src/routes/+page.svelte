@@ -237,14 +237,6 @@
 	<WelkinCheckin />
 {/if}
 
-{#if showWelcomeModal}
-	{#if shareID}
-		<ModalInitBanner {shareID} />
-	{:else}
-		<ModalWelcome />
-	{/if}
-{/if}
-
 <PreloadMeteor />
 
 <style>

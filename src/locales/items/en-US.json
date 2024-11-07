@@ -71,7 +71,7 @@
 	"skyward-blade": "Skyward Blade",
 	"skyward-harp": "Skyward Harp",
 	"skyward-pride": "Skyward Pride",
-	"skyward-spine": "Skyward Spine",
+	"skyward-spine": " ",
 	"slingshot": "Slingshot",
 	"song-of-broken-pines": "Song of Broken Pines",
 	"splendor-of-tranquil-waters": "Splendor of Tranquil Waters",
@@ -173,7 +173,7 @@
 		"title": "Flame-Mane"
 	},
 	"diluc": {
-		"name": "Diluc",
+		"name": "В книге о хране",
 		"title": "The Dark Side of Dawn"
 	},
 	"diona": {
@@ -213,7 +213,7 @@
 		"title": "Leonine Vanguard"
 	},
 	"ganyu": {
-		"name": "Ganyu",
+		"name": "За чипсами",
 		"title": "Plenilune Gaze"
 	},
 	"gorou": {
@@ -225,7 +225,7 @@
 		"title": "Fragrance in Thaw"
 	},
 	"jean": {
-		"name": "Jean",
+		"name": "За пылесосом",
 		"title": "Dandelion Knight"
 	},
 	"kachina": {
@@ -233,7 +233,7 @@
 		"title": "Mottled Gold Yet Unsmelted"
 	},
 	"kaedehara-kazuha": {
-		"name": "Kaedehara Kazuha",
+		"name": "В кабинете, под сервером",
 		"title": "Scarlet Leaves Pursue Wild Waves"
 	},
 	"kaeya": {
@@ -253,8 +253,8 @@
 		"title": "Empyrean Reflection"
 	},
 	"keqing": {
-		"name": "Keqing",
-		"title": "Driving Thunder"
+		"name": "Another one",
+		"title": "Unexpected!"
 	},
 	"kinich": {
 		"name": "Kinich",
@@ -297,11 +297,11 @@
 		"title": "Coordinates of Clear Frost"
 	},
 	"mona": {
-		"name": "Mona",
-		"title": "Astral Reflection"
+		"name": "Some gift",
+		"title": "Very useful!"
 	},
 	"mualani": {
-		"name": "Mualani",
+		"name": "В духовке",
 		"title": "Splish-Splash Wavechaser"
 	},
 	"nahida": {
@@ -329,8 +329,8 @@
 		"title": "Chivalric Blossom"
 	},
 	"qiqi": {
-		"name": "Qiqi",
-		"title": "Icy Resurrection"
+		"name": "And even more!",
+		"title": "What a surprise!"
 	},
 	"raiden-shogun": {
 		"name": "Raiden Shogun",
@@ -345,7 +345,7 @@
 		"title": "Thorny Benevolence"
 	},
 	"sangonomiya-kokomi": {
-		"name": "Sangonomiya Kokomi",
+		"name": "За телевизором",
 		"title": "Pearl of Wisdom"
 	},
 	"sayu": {
@@ -393,7 +393,7 @@
 		"title": "Eons Adrift"
 	},
 	"wriothesley": {
-		"name": "Wriothesley",
+		"name": "На лоджии",
 		"title": "Emissary of Solitary Iniquity"
 	},
 	"xiangling": {
@@ -409,7 +409,7 @@
 		"title": "Vigilant Yaksha"
 	},
 	"xilonen": {
-		"name": "Xilonen",
+		"name": "В чемодане",
 		"title": "Ardent Flames Forge the Soul"
 	},
 	"xingqiu": {

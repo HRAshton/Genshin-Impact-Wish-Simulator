@@ -5,7 +5,6 @@ const rand = (array) => array[Math.floor(Math.random() * array.length)];
 
 const getAllChars = (star) =>
 	charsDB.data
-		.filter(({ rarity }) => rarity === star)
 		.map((arr) => {
 			arr.type = 'character';
 			return arr;
